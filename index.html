@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Học phát âm tiếng Trung (đầy đủ)</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#e8efeb;--card:#f8fbf9;--ink:#15302a;--mute:#51675f;--line:#c4d3cb;--seal:#b8322a;--jade:#2f7a63;--tint:#d5e4dc}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12201c;--card:#1b2e28;--ink:#e6f0ec;--mute:#9db3aa;--line:#2f4a41;--seal:#ef6b5f;--jade:#6fcaa9;--tint:#243b33}}
+:root[data-theme="dark"]{--bg:#12201c;--card:#1b2e28;--ink:#e6f0ec;--mute:#9db3aa;--line:#2f4a41;--seal:#ef6b5f;--jade:#6fcaa9;--tint:#243b33}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:clamp(1.6rem,5vw,2.4rem);margin:8px 0 4px;font-weight:700;letter-spacing:-.01em}
+h1 span{color:var(--seal);font-weight:500;margin-left:.4em}
+.sub{color:var(--mute);margin:0 0 18px;max-width:60ch}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+nav button{font:inherit;font-weight:600;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+nav button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
+section[hidden]{display:none}
+h2{font-size:1.15rem;margin:26px 0 4px}
+.note{color:var(--mute);font-size:.92rem;margin:0 0 12px;max-width:68ch}
+.tones{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tone{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:12px;text-align:center;cursor:pointer;font:inherit;color:inherit}
+.tone:hover{border-color:var(--jade)}
+.tone .m{font-size:2.6rem;font-weight:700;line-height:1.1}
+.tone .n{font-weight:600}
+.tone .c{color:var(--mute);font-size:.88rem}
+.tone svg{width:100%;height:110px;display:block;margin:6px 0}
+.tone .g{stroke:var(--line);stroke-width:1}
+.tone .p{fill:none;stroke:var(--seal);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.tone.on .p{stroke-dasharray:300;animation:dr .8s ease-out}
+@keyframes dr{from{stroke-dashoffset:300}to{stroke-dashoffset:0}}
+.grp{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.grp h3{margin:0 0 8px;font-size:.98rem;color:var(--jade)}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.it{font:inherit;color:inherit;cursor:pointer;background:var(--tint);border:1.5px solid transparent;border-radius:10px;padding:6px 12px;min-width:76px;text-align:center}
+.it:hover{border-color:var(--jade)}
+.it b{display:block;font-size:1.35rem;line-height:1.2}
+.it small{display:block;color:var(--mute);font-size:.78rem}
+.it i{display:block;font-style:normal;color:var(--seal);font-size:.8rem;font-weight:600}
+.box{border-left:4px solid var(--seal);background:var(--card);padding:10px 14px;border-radius:0 10px 10px 0;margin:10px 0;font-size:.95rem}
+.hz{font-size:1.1rem}
+#toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:999px;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90%;text-align:center}
+#toast.s{opacity:1}
+@media (prefers-reduced-motion:reduce){.tone.on .p{animation:none}}
+
+.ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.ctl button,.ctl select{font:inherit;padding:8px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.ctl button.pri{background:var(--seal);border-color:var(--seal);color:#fff}
+.fcard{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:20px 12px;text-align:center}
+.fcard .row{justify-content:center}
+.fcard .it{min-width:84px;padding:10px 14px}
+.fcard .it b{font-size:2rem}
+.big{font-size:clamp(2.6rem,12vw,4.5rem);font-weight:700;line-height:1.2}
+.pyb{font-size:1.8rem;color:var(--seal);min-height:2.4rem;margin-top:6px}
+.tw{overflow-x:auto;border:1.5px solid var(--line);border-radius:12px;max-height:70vh}
+table{border-collapse:collapse;font-size:.82rem;background:var(--card)}
+th,td{padding:4px 8px;border:1px solid var(--line);text-align:center;white-space:nowrap}
+th{position:sticky;top:0;background:var(--jade);color:#fff;z-index:1}
+td:first-child{position:sticky;left:0;background:var(--jade);color:#fff;font-weight:700;z-index:1}
+td.c{cursor:pointer}td.c:hover{background:var(--tint)}
+#det{min-height:2rem;font-weight:600;color:var(--seal);margin:6px 0}
+.big{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Học phát âm<span>拼音</span></h1>
+<p class="sub">Bấm vào từng thanh điệu, thanh mẫu hoặc vận mẫu để nghe đọc mẫu. Mỗi âm kèm một chữ Hán ví dụ.</p>
+<nav role="tablist" id="tabs"></nav>
+
+<section id="t0">
+<h2>Thanh điệu</h2>
+<p class="note">Tiếng Trung phổ thông có 4 thanh. Số trong ngoặc là độ cao của giọng trên thang từ 1 (thấp) đến 5 (cao).</p>
+<div class="tones" id="tones"></div>
+</section>
+
+<section id="t1" hidden>
+<h2>Thanh mẫu</h2>
+<p class="note">Mỗi thanh mẫu chỉ đọc ở thanh 1 (bō, pō, mō, fō, dē…). Riêng n đọc là /nưa/, l đọc là /lưa/.</p>
+<div id="init"></div>
+</section>
+
+<section id="t2" hidden>
+<h2>Vận mẫu đơn</h2>
+<div class="box"><b>o</b>: đứng một mình đọc là /ô/; kết hợp với vận mẫu khác đọc là /ua/.<br><b>e</b>: không có thanh điệu đọc là /ơ/; có thanh điệu đọc là /ưa/.</div>
+<div id="fs"></div>
+<h2>Vận mẫu kép</h2>
+<p class="note">Mỗi vận mẫu chỉ đọc một mình ở thanh 1, không ghép thêm thanh mẫu (ví dụ ei đọc là ây, không đọc là hây). Phần trong ngoặc là cách đọc gần đúng theo tiếng Việt.</p>
+<div id="fc"></div>
+<div class="box">Sau z, c, s, zh, ch, sh, r, chữ <b>i</b> không đọc là /i/ mà đọc gần /ư/ (zi, ci, si, zhi, chi, shi, ri).</div>
+</section>
+
+<section id="t3" hidden>
+<h2>Flashcard âm tiết</h2>
+<p class="note">Mỗi lần hiện một âm tiết bất kỳ có thanh điệu. Đọc thành tiếng rồi bấm Nghe để so sánh.</p>
+<div class="fcard"><div class="big" id="fbig"></div><div class="ctl" style="justify-content:center"><button id="fall" class="pri">Nghe</button></div></div>
+<div class="ctl"><button id="fp">Trước</button><span id="fcn"></span><button id="fn">Sau</button><button id="fsh">Xáo trộn</button></div>
+<p class="note">Âm tiết đọc bằng giọng đọc của máy nên có thể chưa chuẩn trên một số thiết bị.</p>
+</section>
+<section id="t4" hidden>
+<h2>Biến điệu thanh 3</h2>
+<div class="box">Khi hai thanh 3 đi liền nhau, thanh 3 đứng trước đọc thành thanh 2: nǐhǎo đọc là níhǎo. Với 3 hoặc 4 thanh 3 liền nhau, ở đây dùng quy tắc đơn giản: mọi âm đọc thành thanh 2, trừ âm cuối giữ thanh 3. Thực tế còn tùy cách ngắt nhịp.</div>
+<div class="ctl"><select id="ssel" aria-label="Lọc"><option value="0">Tất cả (55)</option><option value="2">2 thanh 3 (40 từ)</option><option value="3">3 thanh 3 (10 cụm)</option><option value="4">4 thanh 3 (5 cụm)</option></select><button id="smode">Xem dạng danh sách</button><button id="ssh">Xáo trộn</button></div>
+<div id="sone"><div class="fcard"><div class="big" id="sbig"></div><div class="pyb" id="sact"></div><div class="ctl" style="justify-content:center"><button id="ssp" class="pri">Nghe</button></div></div>
+<div class="ctl"><button id="sp">Trước</button><span id="scn"></span><button id="sn">Sau</button></div></div>
+<div id="slist" hidden></div>
+</section>
+<section id="t5" hidden>
+<h2>Ôn tập: 150 từ hai âm tiết</h2>
+<p class="note">Đọc phiên âm thành tiếng, rồi bấm Nghe để so sánh với giọng mẫu.</p>
+<div class="fcard"><div class="big" id="wp"></div><div class="ctl" style="justify-content:center"><button id="ws" class="pri">Nghe</button></div></div>
+<div class="ctl"><button id="wpv">Trước</button><span id="wcn"></span><button id="wnx">Sau</button><button id="wsh">Xáo trộn</button></div>
+</section>
+<section id="t6" hidden>
+<h2>Tổng kết: bảng phiên âm</h2>
+<p class="note">Hàng là vận mẫu, cột là thanh mẫu. Bấm vào một ô để xem đủ 4 thanh và nghe.</p>
+<div id="det"></div>
+<div class="tw" id="tw"></div>
+</section>
+</div>
+<div id="toast"></div>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+var tm;
+function toast(t){var e=$('toast');e.textContent=t;e.className='s';clearTimeout(tm);tm=setTimeout(function(){e.className=''},2200)}
+function speak(hz,lg){
+  try{
+    if(!window.speechSynthesis){toast('Trình duyệt chưa hỗ trợ đọc mẫu');return}
+    speechSynthesis.cancel();
+    lg=lg||'zh';
+    var u=new SpeechSynthesisUtterance(hz);u.lang=lg=='vi'?'vi-VN':'zh-CN';u.rate=.7;
+    var v=speechSynthesis.getVoices().filter(function(x){return x.lang.toLowerCase().indexOf(lg)==0});
+    if(v.length)u.voice=v[0];else toast('Máy chưa có giọng '+(lg=='vi'?'tiếng Việt':'tiếng Trung'));
+    speechSynthesis.speak(u);
+  }catch(e){toast('Không phát được âm thanh')}
+}
+/* tabs */
+var names=['Thanh điệu','Thanh mẫu','Vận mẫu','Flashcard âm','Biến điệu thanh 3','Ôn tập','Tổng kết'];
+names.forEach(function(n,i){
+  var b=document.createElement('button');b.textContent=n;b.setAttribute('role','tab');b.setAttribute('aria-selected',i==0);
+  b.onclick=function(){
+    names.forEach(function(_,j){$('t'+j).hidden=j!=i;$('tabs').children[j].setAttribute('aria-selected',j==i)});
+  };
+  $('tabs').appendChild(b);
+});
+/* tones */
+var T=[['ā','Thanh 1','5-5','妈','mā','100,20 260,20'],['á','Thanh 2','3-5','麻','má','100,60 260,20'],['ǎ','Thanh 3','2-1-4','马','mǎ','60,80 120,100 240,30'].slice(0,5),['à','Thanh 4','5-1','骂','mà','100,20 260,100']];
+T[2][5]='80,80 140,100 260,40';
+T[0][5]='60,20 260,20';T[1][5]='60,60 260,20';T[3][5]='100,20 220,100';
+T.forEach(function(t){
+  var b=document.createElement('button');b.className='tone';
+  var g='';for(var k=0;k<5;k++){var y=20+k*20;g+='<line class="g" x1="10" x2="290" y1="'+y+'" y2="'+y+'"/>'}
+  b.innerHTML='<div class="m">'+t[0]+'</div><svg viewBox="0 0 300 120" aria-hidden="true">'+g+'<polyline class="p" points="'+t[5]+'"/></svg><div class="n">'+t[1]+'</div><div class="c">('+t[2]+') · '+t[4]+' <span class="hz">'+t[3]+'</span></div>';
+  b.setAttribute('aria-label',t[1]+', '+t[4]);
+  b.onclick=function(){
+    document.querySelectorAll('.tone').forEach(function(x){x.classList.remove('on')});
+    void b.offsetWidth;b.classList.add('on');speak(t[3]);
+  };
+  $('tones').appendChild(b);
+});
+/* helpers */
+function item(py,hz,vi,sub){
+  var b=document.createElement('button');b.className='it';
+  b.innerHTML='<b>'+py+'</b>'+(vi?'<i>'+vi+'</i>':'')+'<small>'+(sub||'')+'</small>';
+  b.onclick=function(){speak(hz,/^[\x00-\x7f]+$/.test(hz)?'vi':'zh')};return b;
+}
+function group(parent,title,list){
+  var g=document.createElement('div');g.className='grp';
+  g.innerHTML='<h3>'+title+'</h3><div class="row"></div>';
+  list.forEach(function(x){g.lastChild.appendChild(item(x[0],x[1],x[2],x[3]))});
+  parent.appendChild(g);
+}
+var I=[
+['Âm hai môi',[['b','波','bō'],['p','坡','pō'],['m','摸','mō']]],
+['Âm môi răng',[['f','佛','fō']]],
+['Âm đầu lưỡi giữa',[['d','嘚','dē'],['t','忒','tē'],['n','呢','nưa'],['l','了','lưa']]],
+['Âm cuống lưỡi',[['g','哥','gē'],['k','科','kē'],['h','喝','hē']]],
+['Âm mặt lưỡi',[['j','鸡','jī'],['q','七','qī'],['x','西','xī']]],
+['Âm đầu lưỡi trước',[['z','资','zī'],['c','疵','cī'],['s','思','sī']]],
+['Âm cuộn lưỡi',[['zh','知','zhī'],['ch','吃','chī'],['sh','诗','shī'],['r','日','rī']]]
+];
+I.forEach(function(g){group($('init'),g[0],g[1].map(function(x){return [x[0],x[1],'',x[2]]}))});
+var FS=[['a','啊'],['o','哦'],['e','婀'],['i','衣'],['u','乌'],['ü','迂']];
+group($('fs'),'Sáu vận mẫu đơn',FS.map(function(x){return [x[0],x[1],{o:'/ô/',e:'/ưa/'}[x[0]]||'',tone(x[0],1)]}));
+var K={ai:'哀',ao:'凹',an:'安',ang:'肮',ou:'欧',ei:'诶',en:'恩',eng:'鞥',er:'儿',ong:'ung',ia:'呀',iao:'腰',ian:'烟',iang:'央',ie:'耶',in:'因',ing:'英',iong:'雍',iu:'优',ua:'蛙',uo:'窝',uai:'歪',ui:'威',uan:'弯',un:'温',uang:'汪',ueng:'翁',üe:'约',üan:'渊',ün:'晕'};
+var V={ou:'âu',ong:'ung',ei:'ây',en:'ân',eng:'âng',er:'ơ',ua:'oa',uan:'uân',uang:'oang',uai:'oai',ui:'uây',uo:'ua',un:'uân',iong:'iung',ueng:'uâng',iu:'iou'};
+var G=[['Nhóm a',['ai','ao','an','ang']],['Nhóm o và e',['ou','ei','en','eng','er','ong']],['Nhóm i',['ia','iao','ian','iang','ie','in','ing','iong','iu']],['Nhóm u',['ua','uo','uai','ui','uan','un','uang','ueng']],['Nhóm ü',['üe','üan','ün']]];
+G.forEach(function(g){
+  group($('fc'),g[0],g[1].map(function(p){return [p,K[p],V[p]?'('+V[p]+')':'',tone(p,1)]}));
+});
+if(window.speechSynthesis&&speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=function(){};
+
+function sh(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function tone(py,t){
+  if(!t||t==5)return py;
+  var m={a:'āáǎà',e:'ēéěè',i:'īíǐì',o:'ōóǒò',u:'ūúǔù','ü':'ǖǘǚǜ'};
+  var i=py.search(/[ae]/);
+  if(i<0){i=py.indexOf('ou');if(i<0){var v=py.match(/[iouü]/g);i=py.lastIndexOf(v[v.length-1])}}
+  return py.slice(0,i)+m[py[i]][t-1]+py.slice(i+1);
+}
+function syl(n){return n.match(/[a-z]+[1-5]/g).map(function(x){return [x.slice(0,-1).replace(/v/g,'ü'),+x.slice(-1)]})}
+function pin(n,sand){var a=syl(n);return a.map(function(x,k){return tone(x[0],sand&&k<a.length-1?2:x[1])}).join('')}
+function wd(w){var m=w.match(/^([^\x00-\x7f]+)(.+)$/);return [m[1],m[2]]}
+var NM={b:'b',p:'p',m:'m',f:'f',d:'d',t:'t',n:'n',l:'l',g:'g',k:'k',h:'h',j:'j',q:'q',x:'x',z:'z',c:'c',s:'s',Z:'zh',C:'ch',S:'sh',r:'r'};
+var COLS='bpmfdtnlgkhjqxzcsZCSr';
+var FD='-i||i|zcsZCSr;a|a|a|-bpmfdtnlgkhzcsZCS;ai|ai|ai|-bpmdtnlgkhzcsZCS;an|an|an|-bpmfdtnlgkhzcsZCSr;ang|ang|ang|-bpmfdtnlgkhzcsZCSr;ao|ao|ao|-bpmdtnlgkhzcsZCSr;e|e|e|-mdtnlgkhzcsZCSr;ei|ei|ei|-bpmfdnlghzZS;en|en|en|-bpmfngkhzcsZCSr;eng|eng|eng|-bpmfdtnlgkhzcsZCSr;er|er|er|-;i|yi|i|-bpmdtnljqx;ia|ya|ia|-dljqx;ian|yan|ian|-bpmdtnljqx;iang|yang|iang|-nljqx;iao|yao|iao|-bpmdtnljqx;ie|ye|ie|-bpmdtnljqx;in|yin|in|-bpmnljqx;ing|ying|ing|-bpmdtnljqx;iong|yong|iong|-jqx;iou|you|iu|-mdnljqx;o|o|o|-bpmf;ong||ong|dtnlgkhzcsZCr;ou|ou|ou|-pmfdtlgkhzcsZCSr;u|wu|u|-bpmfdtnlgkhzcsZCSr;ua|wa|ua|-gkhZS;uai|wai|uai|-gkhZCS;uan|wan|uan|-dtnlgkhzcsZCSr;uang|wang|uang|-gkhZCS;uei|wei|ui|-dtgkhzcsZCSr;uen|wen|un|-dtlgkhzcsZCSr;ueng|weng|ueng|-;uo|wo|uo|-dtnlgkhzcsZCSr;ü|yu|ü|-nljqx;üan|yuan|üan|-jqx;üe|yue|üe|-nljqx;ün|yun|ün|-jqx'.split(';').map(function(r){var a=r.split('|');return {l:a[0],z:a[1],c:a[2],i:a[3]}});
+function spell(f,ch){
+  if(ch=='-')return f.z;
+  var c=f.c;if('jqx'.indexOf(ch)>=0)c=c.replace('ü','u');
+  return NM[ch]+c;
+}
+/* flashcard syllables */
+var SY=[],seen={};
+FD.forEach(function(f){f.i.split('').forEach(function(ch){var p=spell(f,ch);if(p&&!seen[p]){seen[p]=1;SY.push({p:p,f:f.l})}})});
+var FA=[];SY.forEach(function(x){[1,2,3,4].forEach(function(t){FA.push(tone(x.p,t))})});
+var fl=sh(FA),fi=0;
+function fr(){$('fbig').textContent=fl[fi];$('fcn').textContent=(fi+1)+' / '+fl.length}
+$('fsh').onclick=function(){fl=sh(FA);fi=0;fr()};
+$('fp').onclick=function(){fi=(fi-1+fl.length)%fl.length;fr()};
+$('fn').onclick=function(){fi=(fi+1)%fl.length;fr()};
+$('fall').onclick=function(){speak(fl[fi])};
+fr();
+/* sandhi */
+var S2='你好ni3hao3 语法yu3fa3 老板lao3ban3 手表shou3biao3 水果shui3guo3 美好mei3hao3 勇敢yong3gan3 理想li3xiang3 总统zong3tong3 保险bao3xian3 洗澡xi3zao3 古老gu3lao3 展览zhan3lan3 管理guan3li3 友好you3hao3 感想gan3xiang3 采访cai3fang3 打扫da3sao3 起点qi3dian3 彼此bi3ci3 举止ju3zhi3 野草ye3cao3 北海bei3hai3 小米xiao3mi3 美景mei3jing3 港口gang3kou3 讲稿jiang3gao3 粉笔fen3bi3 土产tu3chan3 引导yin3dao3 品种pin3zhong3 偶尔ou3er3 许可xu3ke3 鼓舞gu3wu3 旅馆lv3guan3 厂长chang3zhang3 辅导fu3dao3 水准shui3zhun3 采取cai3qu3 减少jian3shao3'.split(' ');
+var S3='我很好wo3hen3hao3 你也好ni3ye3hao3 展览馆zhan3lan3guan3 洗脸水xi3lian3shui3 我也买wo3ye3mai3 买雨伞mai3yu3san3 我想你wo3xiang3ni3 你也走ni3ye3zou3 小老鼠xiao3lao3shu3 我很美wo3hen3mei3'.split(' ');
+var S4='我想请你wo3xiang3qing3ni3 你也很好ni3ye3hen3hao3 我也想买wo3ye3xiang3mai3 你比我好ni3bi3wo3hao3 请你写稿qing3ni3xie3gao3'.split(' ');
+var SA=[];[[S2,2],[S3,3],[S4,4]].forEach(function(p){p[0].forEach(function(w){var a=wd(w);SA.push({h:a[0],w:pin(a[1]),a:pin(a[1],1),n:p[1]})})});
+var sl=SA,si=0,lm=false;
+function sr(){
+  var x=sl[si];$('sbig').textContent=x.w;$('sact').textContent='đọc thành: '+x.a;$('scn').textContent=(si+1)+' / '+sl.length;
+  $('sone').hidden=lm;$('slist').hidden=!lm;$('smode').textContent=lm?'Xem từng từ':'Xem dạng danh sách';
+  var L=$('slist');L.innerHTML='';
+  sl.forEach(function(y){var b=document.createElement('button');b.className='grp';b.style.cssText='display:block;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;margin-bottom:6px';
+    b.innerHTML='<b>'+y.w+'</b> → <span style="color:var(--seal);font-weight:600">'+y.a+'</span>';b.onclick=function(){speak(y.h)};L.appendChild(b)});
+}
+function sf(shuf){var v=+$('ssel').value;sl=SA.filter(function(x){return !v||x.n==v});if(shuf)sl=sh(sl);si=0;sr()}
+$('ssel').onchange=function(){sf(0)};$('ssh').onclick=function(){sf(1)};
+$('smode').onclick=function(){lm=!lm;sr()};
+$('sp').onclick=function(){si=(si-1+sl.length)%sl.length;sr()};
+$('sn').onclick=function(){si=(si+1)%sl.length;sr()};
+$('ssp').onclick=function(){speak(sl[si].h)};
+sr();
+/* review words */
+var RW=('你好ni3hao3 谢谢xie4xie5 再见zai4jian4 老师lao3shi1 学生xue2sheng5 朋友peng2you5 中国zhong1guo2 越南yue4nan2 北京bei3jing1 上海shang4hai3 今天jin1tian1 明天ming2tian1 昨天zuo2tian1 现在xian4zai4 时间shi2jian1 星期xing1qi1 早上zao3shang5 晚上wan3shang5 下午xia4wu3 中午zhong1wu3 工作gong1zuo4 学习xue2xi2 汉语han4yu3 英语ying1yu3 老板lao3ban3 同学tong2xue2 同事tong2shi4 医生yi1sheng1 医院yi1yuan4 学校xue2xiao4 公司gong1si1 商店shang1dian4 饭店fan4dian4 银行yin2hang2 超市chao1shi4 车站che1zhan4 机场ji1chang3 火车huo3che1 汽车qi4che1 飞机fei1ji1 地铁di4tie3 电话dian4hua4 电脑dian4nao3 手机shou3ji1 电视dian4shi4 电影dian4ying3 音乐yin1yue4 歌曲ge1qu3 唱歌chang4ge1 跳舞tiao4wu3 游泳you2yong3 跑步pao3bu4 运动yun4dong4 篮球lan2qiu2 足球zu2qiu2 身体shen1ti3 健康jian4kang1 头发tou2fa5 眼睛yan3jing5 耳朵er3duo5 嘴巴zui3ba5 衣服yi1fu5 裤子ku4zi5 鞋子xie2zi5 帽子mao4zi5 东西dong1xi5 苹果ping2guo3 香蕉xiang1jiao1 西瓜xi1gua1 水果shui3guo3 蔬菜shu1cai4 米饭mi3fan4 面条mian4tiao2 包子bao1zi5 饺子jiao3zi5 牛奶niu2nai3 咖啡ka1fei1 啤酒pi2jiu3 鸡蛋ji1dan4 豆腐dou4fu5 早饭zao3fan4 午饭wu3fan4 晚饭wan3fan4 吃饭chi1fan4 喝茶he1cha2 睡觉shui4jiao4 起床qi3chuang2 洗澡xi3zao3 开始kai1shi3 结束jie2shu4 休息xiu1xi5 帮助bang1zhu4 欢迎huan1ying2 高兴gao1xing4 快乐kuai4le4 漂亮piao4liang5 好看hao3kan4 干净gan1jing4 安静an1jing4 热闹re4nao5 便宜pian2yi5 方便fang1bian4 容易rong2yi4 困难kun4nan5 重要zhong4yao4 认识ren4shi5 知道zhi1dao4 喜欢xi3huan5 觉得jue2de5 希望xi1wang4 愿意yuan4yi4 可以ke3yi3 应该ying1gai1 需要xu1yao4 明白ming2bai5 清楚qing1chu5 努力nu3li4 练习lian4xi2 复习fu4xi2 考试kao3shi4 问题wen4ti2 回答hui2da2 关系guan1xi5 办法ban4fa3 意思yi4si5 机会ji1hui4 经验jing1yan4 习惯xi2guan4 家庭jia1ting2 孩子hai2zi5 爸爸ba4ba5 妈妈ma1ma5 哥哥ge1ge5 姐姐jie3jie5 弟弟di4di5 妹妹mei4mei5 爷爷ye2ye5 奶奶nai3nai5 天气tian1qi4 春天chun1tian1 夏天xia4tian1 秋天qiu1tian1 冬天dong1tian1 工人gong1ren2 司机si1ji1 警察jing3cha2 老人lao3ren2 年轻nian2qing1 生日sheng1ri4 礼物li3wu4').split(' ').slice(0,150).map(wd);
+var wi=0,wo=RW;
+function wr(){$('wp').textContent=pin(wo[wi][1]);$('wcn').textContent=(wi+1)+' / '+wo.length}
+$('ws').onclick=function(){speak(wo[wi][0])};
+$('wpv').onclick=function(){wi=(wi-1+wo.length)%wo.length;wr()};
+$('wnx').onclick=function(){wi=(wi+1)%wo.length;wr()};
+$('wsh').onclick=function(){wo=sh(RW);wi=0;wr()};
+wr();
+/* summary table */
+(function(){
+  var h='<table><tr><th></th><th>–</th>'+COLS.split('').map(function(c){return '<th>'+NM[c]+'</th>'}).join('')+'</tr>';
+  FD.forEach(function(f){
+    h+='<tr><td>'+f.l+'</td>';
+    ('-'+COLS).split('').forEach(function(ch){
+      if(f.i.indexOf(ch)<0){h+='<td></td>';return}
+      var p=spell(f,ch);h+='<td class="c" data-p="'+p+'">'+p+'</td>';
+    });
+    h+='</tr>';
+  });
+  $('tw').innerHTML=h+'</table>';
+  $('tw').onclick=function(e){
+    var p=e.target.getAttribute&&e.target.getAttribute('data-p');if(!p)return;
+    $('det').textContent=[1,2,3,4].map(function(t){return tone(p,t)}).join('   ');
+    speak([1,2,3,4].map(function(t){return tone(p,t)}).join('，'));
+  };
+})();
+</script>
+</body>
+</html>
